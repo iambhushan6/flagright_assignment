@@ -1,23 +1,27 @@
 # Flagright Assignment
 
 ## Introduction:
-As per the assignment instructions this repository covers all the backend work dockerizatoin, youtube data fetching, celery, beat scheduling, adding multiple key support, get api with filters, sorting, search and pagination, a refresh videos api and a pause/resume video fetching functionality as well. 
+
+As per the assignment instructions this repository covers all the backend work dockerizatoin, youtube data fetching, celery, beat scheduling, adding multiple key support, get api with filters, sorting, search and pagination, a refresh videos api and a pause/resume video fetching functionality as well.
+
 There are two models created to save video and token data namely Video and ApiToken. 
-Assignment is made with django-rest-framework using sqlite as database with periodic tasks running on celery beat and redis. \
+
+Assignment is made with django-rest-framework using sqlite as database with periodic tasks running on celery beat and redis.
+
 I have setup a celery beat running every 10 seconds, fetching youtube videos for the searcy query 'CRICKET'.
 
 ## API Documentation
 1) Youtube videos listing with search, filter, order and pagination [GET]:
-Endpoint: ```http://127.0.0.1:8000/api/videos/?search=dhoni&ordering=-published_at```\
+Endpoint: ```http://127.0.0.1:8000/api/videos/?search=dhoni&ordering=-published_at```
 
 2) Refresh youtube fetch videos [GET]:
-Endpoint: ```http://127.0.0.1:8000/api/videos/refresh``` \
+Endpoint: ```http://127.0.0.1:8000/api/videos/refresh``` 
 
 3) Pause/Resume background video fetching [GET]:
-Endpoint: ```http://127.0.0.1:8000/api/videos/pause/?fetch_videos=0/1``` \
+Endpoint: ```http://127.0.0.1:8000/api/videos/pause/?fetch_videos=0/1``` 
 
 4) Multiple Youtube Api token support [POST]:
-Endpoint: ```http://127.0.0.1:8000/api/api-token/ payload: {"token": "dummy_token"}``` \
+Endpoint: ```http://127.0.0.1:8000/api/api-token/ payload: {"token": "dummy_token"}``` 
 
 ## Run this project with Docker:
 ```
