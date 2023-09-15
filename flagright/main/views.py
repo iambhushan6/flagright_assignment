@@ -15,8 +15,8 @@ from django_celery_beat.models import PeriodicTask, PeriodicTasks
 def RefreshVideoAPIView(request):
 
     if request.method == "GET":
-        # YoutubeDataService.fetch_videos()
-        return Response({"data": Video.objects.all().count()})
+        YoutubeDataService.fetch_videos()
+        return Response({"data": "Videos refreshed successfully"})
     
     return Response({"error": "Invalid request method."})
 
@@ -61,6 +61,9 @@ def APITokenView(request):
     
 
 class VideoListView(generics.ListAPIView):
+    '''
+    Get api using ListAPIView with searching, filtering, ordering and pagination functionality.
+    '''
     queryset = Video.objects.all().order_by("-published_at")
     serializer_class = VideoSerializer
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]

@@ -1,5 +1,4 @@
 import requests
-from django.conf import settings
 from datetime import datetime, timedelta
 from main.models import Video, ApiToken
 
@@ -12,15 +11,16 @@ class YoutubeDataService:
     def fetch_videos() -> bool:
 
         api_token_instance = ApiToken.objects.filter(domain="youtube.com", is_expired=False).first()
-        print(api_token_instance.token)
+        if not api_token_instance:
+            return False
 
         current_datetime = datetime.now() - timedelta(minutes=10)   # to let google api update video data
 
         params = {
-            "key" : api_token_instance.token if api_token_instance else settings.YOUTUBE_API_KEY,
+            "key" : api_token_instance.token,
             "part" : "snippet",
             "q" : "cricket",
-            "maxResults" : 20,
+            "maxResults" : 30,
             "type" : "video",
             "publishedAfter" : str(current_datetime.isoformat('T',timespec='seconds')) + 'Z'
         }
