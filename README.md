@@ -2,6 +2,8 @@
 
 ## Introduction:
 
+### Video explanation: ```https://screenapp.io/app/#/shared/0e4ca1fa-d6c9-4d22-b8bf-b3f337bf9ab8```
+
 - As per the assignment instructions this repository covers all the backend work dockerizatoin, youtube data fetching, celery, beat scheduling, adding multiple key support, get api with 
    filters, sorting, search and pagination, a refresh videos api and a pause/resume video fetching functionality as well.
 
