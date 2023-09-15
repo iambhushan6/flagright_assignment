@@ -2,13 +2,14 @@
 
 ## Introduction:
 
-As per the assignment instructions this repository covers all the backend work dockerizatoin, youtube data fetching, celery, beat scheduling, adding multiple key support, get api with filters, sorting, search and pagination, a refresh videos api and a pause/resume video fetching functionality as well.
+- As per the assignment instructions this repository covers all the backend work dockerizatoin, youtube data fetching, celery, beat scheduling, adding multiple key support, get api with 
+   filters, sorting, search and pagination, a refresh videos api and a pause/resume video fetching functionality as well.
 
-There are two models created to save video and token data namely Video and ApiToken. 
+- There are two models created to save video and token data namely Video and ApiToken. 
 
-Assignment is made with django-rest-framework using sqlite as database with periodic tasks running on celery beat and redis.
+- Assignment is made with django-rest-framework using sqlite as database with periodic tasks running on celery beat and redis.
 
-I have setup a celery beat running every 10 seconds, fetching youtube videos for the searcy query 'CRICKET'.
+- I have setup a celery beat running every 10 seconds, fetching youtube videos for the searcy query 'CRICKET'.
 
 ## API Documentation
 1) Youtube videos listing with search, filter, order and pagination [GET]:
